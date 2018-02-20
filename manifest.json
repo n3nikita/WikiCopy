@@ -1,0 +1,34 @@
+{
+    "manifest_version":2,
+    "name": "WikiCopy",
+    "version": "0.0.2",
+
+    "description": "Copy from Wikipedia!",
+
+    "icons": {
+        "128": "img/wiki128.png",
+        "48": "img/wiki48.png",
+        "16": "img/wiki16.png"
+    },
+
+    "content_scripts":[
+        {
+            "matches": [
+                "http://*.wikipedia.org/*",
+                "https://*.wikipedia.org/*"
+            ],
+            "js": ["content.js"]
+        }
+    ],
+
+    "browser_action": {
+        "default_icon": "img/wiki16.png",
+        "default_popup": "popup/popup.html",
+        "default_title": "Settings"
+    },
+
+    "permissions": [
+        "storage"
+    ]
+
+}
