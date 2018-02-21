@@ -1,8 +1,9 @@
 console.log('loaded');
 
-let check = document.getElementById('check');
+let btnClear = document.getElementById('btnClear');
+let btnBack = document.getElementById('btnBack');
 
-function clicked(){
+function btnClearClick(){
     let params = {
         active: true,
         currentWindow: true
@@ -11,19 +12,28 @@ function clicked(){
     chrome.tabs.query(params, gotTabs);
 
     function gotTabs(tabs) {
-        console.log("got tabs");
-        console.log(tabs);
         // send a message to the content script
-
-        chrome.tabs.sendMessage(tabs[0].id, 'clickedf');
+        chrome.tabs.sendMessage(tabs[0].id, 'clear');
     }
 
-    console.log('clicked');
+    console.log('button clear clicked');
 }
 
+function btnBackClick(){
+    let params = {
+        active: true,
+        currentWindow: true
+      };
 
+    chrome.tabs.query(params, gotTabs);
 
+    function gotTabs(tabs) {
+        // send a message to the content script
+        chrome.tabs.sendMessage(tabs[0].id, 'back');
+    }
 
+    console.log('button back clicked');
+}
 
-
-check.addEventListener('click', clicked);
+btnClear.addEventListener('click', btnClearClick);
+btnBack.addEventListener('click', btnBackClick);
