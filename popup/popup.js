@@ -11,9 +11,16 @@ function btnClearClick(){
 
     chrome.tabs.query(params, gotTabs);
 
+    let message = {
+        clear: true,
+        links: document.getElementById('clearLinks').checked,
+        images: document.getElementById('clearContent').checked,
+        tables: document.getElementById('deleteEdit').checked
+    }
+
     function gotTabs(tabs) {
         // send a message to the content script
-        chrome.tabs.sendMessage(tabs[0].id, 'clear');
+        chrome.tabs.sendMessage(tabs[0].id, message);
     }
 
     console.log('button clear clicked');

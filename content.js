@@ -4,26 +4,33 @@ chrome.runtime.onMessage.addListener(gotMessage);
 
 function gotMessage(message, sender, sendResponse){
     console.log(message);
-    if(message == 'clear')
-        clearPage();
+    if(message.clear){
+        removeLstn();
+        removeNoprint();
+        removeRefs();
+        removeEdit();
+        removeInfoMessages();
+        trmoveCatLink();
+        removeNavs();
+        removeTransc();
+
+        if(message.links){
+            replaceLinks();
+        }
+
+        if(message.tables){
+            removeContent();
+            removeInfoBox();
+        }
+
+        if(message.images){
+            removeImgs();
+        }
+    }
     else
         window.location.reload();
 }
 
-function clearPage(){
-    replaceLinks();
-    removeContent();
-    removeEdit();
-    removeRefs();
-    removeImgs();
-    removeInfoBox();
-    removeTransc();
-    removeLstn();
-    removeNoprint();  
-    removeInfoMessages();
-    trmoveCatLink();
-    removeNavs();
-}
 
 
 // delete all element and leave only text
@@ -84,8 +91,6 @@ function removeImgs(){
     for (t of thumb) {
         t.parentNode.removeChild(t);
     }
-
-
 }
 
 
