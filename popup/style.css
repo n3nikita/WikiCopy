@@ -1,0 +1,20 @@
+body{
+    width: 250px;
+    height: 300px;
+}
+
+.buttons{
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.buttons button {
+    width: 100px;
+}
+
+.checkbox{
+    display: block;
+    margin: 10px 0;
+}

@@ -19,7 +19,24 @@ function clearPage(){
     removeInfoBox();
     removeTransc();
     removeLstn();
-    removeNoprint();   
+    removeNoprint();  
+    removeInfoMessages();
+    trmoveCatLink();
+    removeNavs();
+}
+
+
+// delete all element and leave only text
+function clearAll(){
+    var text = document.querySelectorAll('.mw-parser-output');
+    document.body.innerHTML = text[0].innerHTML;
+}
+
+function removeNavs(){
+    let navs = document.querySelectorAll('.navbox');
+    for( n of navs){
+        n.parentNode.removeChild(n);
+    }
 }
 
 // change links to text
@@ -63,18 +80,27 @@ function removeRefs(){
 
 // remove images
 function removeImgs(){
-    let thumb = document.getElementsByClassName('thumb');
+    let thumb = document.querySelectorAll('.thumb');
     for (t of thumb) {
         t.parentNode.removeChild(t);
     }
+
+
 }
 
 
 // remove infobox
 function removeInfoBox(){
-    let inf = document.getElementsByClassName('infobox');
-    if (inf.length > 0){
-        inf[0].parentNode.removeChild(inf[0]);    
+    let inf = document.querySelectorAll('.infobox');
+    for (i of inf){
+        i.parentNode.removeChild(i); 
+    } 
+}
+
+function trmoveCatLink(){
+    let catLinks = document.querySelectorAll('.catlinks');
+    for(c of catLinks){
+        c.parentNode.removeChild(c);
     }
 }
 
@@ -97,9 +123,16 @@ function removeLstn(){
 }
 
 function removeNoprint(){
-    let noprint = bodyContent.getElementsByClassName('noprint');
+    let noprint = bodyContent.querySelectorAll('.noprint');
     for (np of noprint) {
         np.parentNode.removeChild(np);
+    }
+}
+
+function removeInfoMessages() {
+    let infoMessages = bodyContent.querySelectorAll('.plainlinks');
+    for (im of infoMessages) {
+        im.parentNode.removeChild(im);
     }
 }
 
