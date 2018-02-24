@@ -5,14 +5,7 @@ chrome.runtime.onMessage.addListener(gotMessage);
 function gotMessage(message, sender, sendResponse){
     console.log(message);
     if(message.clear){
-        removeLstn();
-        removeNoprint();
-        removeRefs();
-        removeEdit();
-        removeInfoMessages();
-        trmoveCatLink();
-        removeNavs();
-        removeTransc();
+        deleteStaff();
 
         if(message.links){
             replaceLinks();
@@ -26,11 +19,26 @@ function gotMessage(message, sender, sendResponse){
         if(message.images){
             removeImgs();
         }
+
+        if(message.navs){
+            clearAll();
+        }
     }
     else
         window.location.reload();
 }
 
+
+function deleteStaff(){
+    removeLstn();
+    removeNoprint();
+    removeRefs();
+    removeEdit();
+    removeInfoMessages();
+    trmoveCatLink();
+    removeNavs();
+    removeTransc();
+}
 
 
 // delete all element and leave only text

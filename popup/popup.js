@@ -15,7 +15,8 @@ function btnClearClick(){
         clear: true,
         links: document.getElementById('clearLinks').checked,
         images: document.getElementById('clearContent').checked,
-        tables: document.getElementById('deleteEdit').checked
+        tables: document.getElementById('deleteEdit').checked,
+        navs: document.getElementById('deleteNavs').checked
     }
 
     function gotTabs(tabs) {
