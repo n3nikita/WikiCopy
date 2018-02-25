@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 console.log('hello world!');
 
 chrome.runtime.onMessage.addListener(gotMessage);
@@ -49,7 +51,7 @@ function clearAll(){
 
 function removeNavs(){
     let navs = document.querySelectorAll('.navbox');
-    for( n of navs){
+    for(let n of navs){
         n.parentNode.removeChild(n);
     }
 }
@@ -58,7 +60,7 @@ function removeNavs(){
 function replaceLinks(){
     let bodyContent = document.getElementById('mw-content-text');
     let links = bodyContent.querySelectorAll('a');
-    for (l of links) {
+    for (let l of links) {
         let p = document.createElement('span');
         p.innerText = l.innerText;
         l.parentNode.replaceChild(p, l);
@@ -78,7 +80,7 @@ function removeContent(){
 // remove [edit]
 function removeEdit(){
     let edit = document.querySelectorAll('.mw-editsection');
-    for (e of edit) {
+    for (let e of edit) {
         e.parentNode.removeChild(e);
     }
 }
@@ -87,7 +89,7 @@ function removeEdit(){
 // remove reference [0][1]...
 function removeRefs(){
     let ref = document.querySelectorAll('.reference');
-    for (r of ref) {
+    for (let r of ref) {
         r.parentNode.removeChild(r);
     }
 }
@@ -96,7 +98,7 @@ function removeRefs(){
 // remove images
 function removeImgs(){
     let thumb = document.querySelectorAll('.thumb');
-    for (t of thumb) {
+    for (let t of thumb) {
         t.parentNode.removeChild(t);
     }
 }
@@ -105,14 +107,14 @@ function removeImgs(){
 // remove infobox
 function removeInfoBox(){
     let inf = document.querySelectorAll('.infobox');
-    for (i of inf){
+    for (let i of inf){
         i.parentNode.removeChild(i); 
     } 
 }
 
 function trmoveCatLink(){
     let catLinks = document.querySelectorAll('.catlinks');
-    for(c of catLinks){
+    for(let c of catLinks){
         c.parentNode.removeChild(c);
     }
 }
@@ -137,14 +139,14 @@ function removeLstn(){
 
 function removeNoprint(){
     let noprint = bodyContent.querySelectorAll('.noprint');
-    for (np of noprint) {
+    for (let np of noprint) {
         np.parentNode.removeChild(np);
     }
 }
 
 function removeInfoMessages() {
     let infoMessages = bodyContent.querySelectorAll('.plainlinks');
-    for (im of infoMessages) {
+    for (let im of infoMessages) {
         im.parentNode.removeChild(im);
     }
 }

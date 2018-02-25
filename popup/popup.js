@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 console.log('loaded');
 
 let btnClear = document.getElementById('btnClear');
@@ -17,7 +19,7 @@ function btnClearClick(){
         images: document.getElementById('clearContent').checked,
         tables: document.getElementById('deleteEdit').checked,
         navs: document.getElementById('deleteNavs').checked
-    }
+    };
 
     function gotTabs(tabs) {
         // send a message to the content script
