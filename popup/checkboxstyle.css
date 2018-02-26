@@ -21,6 +21,7 @@ input[type="checkbox"] + label:before {
   width: 20px;
   height: 20px;
   border: 1px solid #3db150;
+  border-radius: 10px;
   position: absolute;
   left: 0;
   top: 0;

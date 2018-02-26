@@ -7,6 +7,7 @@
 
 body{
     width: 250px;
+    background-color: 	#fdfdfd;
     height: 300px;
     font: 14px/20px 'Open Sans', Arial, sans-serif;
 }
@@ -14,11 +15,22 @@ body{
 .header{
     width: 100%;
     height: 50px;
-    background-color: black;
+    background-color: #494c50;
+}
+
+.img-icon{
+    position: absolute;
+    top: 20px;
+    left: 101px;
+
 }
 
 .checkboxes{
-    margin: 15px 30px;
+    margin: 25px 30px;
+}
+
+.chkheader{
+    margin-left: -5px;
 }
 
 .buttons{
@@ -32,7 +44,7 @@ body{
     outline: none;
     background-color: white;
     color: black;
-    border: 1px solid #555555;
+    border: 1px solid #494c50;
     padding: 3px 2px;
     text-align: center;
     text-decoration: none;
@@ -45,7 +57,7 @@ body{
 }
 
 .buttons button:hover {
-    background-color: #555555;
+    background-color: #494c50;
     color: white;
 }
 

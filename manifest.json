@@ -7,6 +7,7 @@
 
     "icons": {
         "128": "img/wiki128.png",
+        "64": "img/wiki64.png",
         "48": "img/wiki48.png",
         "16": "img/wiki16.png"
     },
