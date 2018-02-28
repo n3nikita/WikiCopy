@@ -1,11 +1,8 @@
 /*jshint esversion: 6 */
 
-console.log('hello world!');
-
 chrome.runtime.onMessage.addListener(gotMessage);
 
 function gotMessage(message, sender, sendResponse){
-    console.log(message);
     if(message.clear){
         deleteStaff();
 

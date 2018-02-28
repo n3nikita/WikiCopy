@@ -1,7 +1,5 @@
 /*jshint esversion: 6 */
 
-console.log('loaded');
-
 let btnClear = document.getElementById('btnClear');
 let btnBack = document.getElementById('btnBack');
 
@@ -26,7 +24,6 @@ function btnClearClick(){
         chrome.tabs.sendMessage(tabs[0].id, message);
     }
 
-    console.log('button clear clicked');
 }
 
 function btnBackClick(){
@@ -42,7 +39,6 @@ function btnBackClick(){
         chrome.tabs.sendMessage(tabs[0].id, 'back');
     }
 
-    console.log('button back clicked');
 }
 
 btnClear.addEventListener('click', btnClearClick);
