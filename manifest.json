@@ -28,8 +28,14 @@
         "default_title": "WikiCopy"
     },
 
-    "permissions": [
-        "storage"
-    ]
+    "commands": {
+        "_execute_browser_action": {
+          "suggested_key": {
+            "default": "Ctrl+Shift+E",
+            "mac": "MacCtrl+Shift+E"
+          },
+          "description": "Opens popup"
+        }
+    }
 
 }

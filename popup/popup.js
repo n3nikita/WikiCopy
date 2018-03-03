@@ -1,15 +1,14 @@
 /*jshint esversion: 6 */
 
+let activeTabParams = {
+    active: true, 
+    currentWindow: true 
+};
+
 let btnClear = document.getElementById('btnClear');
 let btnBack = document.getElementById('btnBack');
 
 function btnClearClick(){
-    let params = {
-        active: true,
-        currentWindow: true
-      };
-
-    chrome.tabs.query(params, gotTabs);
 
     let message = {
         clear: true,
@@ -19,25 +18,16 @@ function btnClearClick(){
         navs: document.getElementById('deleteNavs').checked
     };
 
-    function gotTabs(tabs) {
-        // send a message to the content script
+    chrome.tabs.query(activeTabParams, function gotTabs(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, message);
-    }
-
+    });
 }
 
 function btnBackClick(){
-    let params = {
-        active: true,
-        currentWindow: true
-      };
 
-    chrome.tabs.query(params, gotTabs);
-
-    function gotTabs(tabs) {
-        // send a message to the content script
+    chrome.tabs.query(activeTabParams, function gotTabs(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, 'back');
-    }
+    });
 
 }
 
