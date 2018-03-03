@@ -1,5 +1,7 @@
 /*jshint esversion: 6 */
 
+console.log('im working');
+
 chrome.runtime.onMessage.addListener(gotMessage);
 
 function gotMessage(message, sender, sendResponse){
@@ -26,6 +28,7 @@ function gotMessage(message, sender, sendResponse){
 
 
 function deleteStaff(){
+   
     removeElements('.nowrap');
     //removeElements('.noprint');
     removeNoprint();
@@ -35,10 +38,20 @@ function deleteStaff(){
     removeElements('.catlinks');
     removeElements('.navbox');
     removeElements('.IPA');
+    changeHStyle();
+}
+
+function changeHStyle(){
+    document.getElementsByTagName('h1')[0].style["border-bottom"] = "0px";
+
+    let elements = document.getElementsByTagName('h2');
+    for(let h of elements){
+        h.style["border-bottom"] = "0px";
+    }
 }
 
 function removeElements(name){
-    var elements = document.querySelectorAll(name);
+    let elements = document.querySelectorAll(name);
     for (let e of elements)
         e.parentNode.removeChild(e);
 }
@@ -59,7 +72,7 @@ function clearAll(){
 // change links to text
 function replaceLinks(){
     let bodyContent = document.getElementById('mw-content-text');
-    let links = bodyContent.querySelectorAll('a');
+    let links = bodyContent.querySelectorAll('a:not(.image)');
     for (let l of links) {
         let p = document.createElement('span');
         p.innerText = l.innerText;
