@@ -16,8 +16,10 @@ function gotMessage(message, sender, sendResponse){
             removeElements('.infobox');
         }
 
-        if(message.images)
+        if(message.images){
             removeElements('.thumb');
+            removeElements('img');
+        }
         
         if(message.navs)
             clearAll();     
@@ -67,6 +69,7 @@ function removeNoprint(){
 function clearAll(){
     var text = document.querySelectorAll('.mw-parser-output');
     document.body.innerHTML = text[0].innerHTML;
+    document.body.style.background = "white";
 }
 
 // change links to text

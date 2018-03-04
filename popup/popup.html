@@ -3,15 +3,17 @@
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="checkboxstyle.css">
+    <link rel="stylesheet" type="text/css" href="mui/mui.min.css">
+    <script src="mui/mui.min.js"></script>
 </head>
 
 <body>
-<div class="header">
-    <img class="img-icon" alt="icon" src="/img/wiki48.png">
-</div>
+    <div class="mui-appbar">
+        <img class="img-icon" alt="icon" src="/img/wiki48.png">
+    </div>
 
     <div class="checkboxes">
-        <h4 class="chkheader">Items to remove: </h4>
+        <h4 class="chkheader mui--text-dark-secondary">Items to remove: </h4>
         <div class="checkbox">
             <input type="checkbox" name="clearLinks" id="clearLinks" checked>
             <label for="clearLinks">Links</label>
@@ -32,35 +34,17 @@
             <label for="deleteNavs">Header, sidebar etc.</label>
         </div>
 
-        <!-- 
+        <!--
         <div class="checkbox">
             <input type="checkbox" name="infobox" id="infobox" checked>
             <label for="infobox">Info boxes</label>
-        </div>
+        </div> 
+        -->
 
-        <div class="checkbox">
-            <input type="checkbox" name="ref" id="ref" checked>
-            <label for="ref">Refrenses</label>
-        </div>
-
-        <div class="checkbox">
-            <input type="checkbox" name="transc" id="transc" checked>
-            <label for="transc">Transcriptions</label>
-        </div>
-
-        <div class="checkbox">
-            <input type="checkbox" name="listen" id="listen" checked>
-            <label for="listen">Listen</label>
-        </div>
-
-        <div class="checkbox">
-            <input type="checkbox" name="noprint" id="noprint" checked>
-            <label for="noprint">No print</label>
-        </div> -->
     </div>
     <div class="buttons">
-        <button id="btnClear">Clear!</button>
-        <button id="btnBack">Back</button>
+        <button id="btnClear" class="mui-btn mui-btn--raised">Clear!</button>
+        <button id="btnBack" class="mui-btn mui-btn--raised">Back</button>
     </div>
 </body>
 <script src="popup.js"></script>
