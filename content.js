@@ -69,7 +69,11 @@ function removeNoprint(){
 function clearAll(){
     var text = document.querySelectorAll('.mw-parser-output');
     document.body.innerHTML = text[0].innerHTML;
-    document.body.style.background = "white";
+    var styles = {
+        background: "white",
+        padding: "20px 50px"
+    };
+    Object.assign(document.body.style, styles);
 }
 
 // change links to text
