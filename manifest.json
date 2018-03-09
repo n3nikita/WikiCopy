@@ -1,9 +1,9 @@
 {
     "manifest_version":2,
     "name": "Wikipedia Copy",
-    "version": "1.0.0",
+    "version": "1.0.1",
 
-    "description": "Copy from Wikipedia!",
+    "description": "Copy pure text from Wikipedia!",
 
     "icons": {
         "128": "img/wiki128.png",
@@ -34,7 +34,7 @@
             "default": "Ctrl+Shift+E",
             "mac": "MacCtrl+Shift+E"
           },
-          "description": "Opens popup"
+          "description": "Open extension menu."
         }
     }
 

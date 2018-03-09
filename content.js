@@ -39,6 +39,7 @@ function deleteStaff(){
     removeElements('.plainlinks');
     removeElements('.catlinks');
     removeElements('.navbox');
+    removeElements('.vertical-navbox');
     removeElements('.IPA');
     changeHStyle();
 }
