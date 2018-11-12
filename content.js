@@ -1,7 +1,4 @@
 /*jshint esversion: 6 */
-
-console.log('im working');
-
 chrome.runtime.onMessage.addListener(gotMessage);
 
 function gotMessage(message, sender, sendResponse){
@@ -11,15 +8,13 @@ function gotMessage(message, sender, sendResponse){
         if(message.links)
             replaceLinks();
         
-        if(message.tables){
-            removeElements('#toc');
-            removeElements('.infobox');
-        }
+        if(message.tables)
+            removeElements('#toc', '.infobox');
+        
 
-        if(message.images){
-            removeElements('.thumb');
-            removeElements('img');
-        }
+        if(message.images)
+            removeElements('.thumb', 'img');
+        
         
         if(message.navs)
             clearAll();     
@@ -30,17 +25,9 @@ function gotMessage(message, sender, sendResponse){
 
 
 function deleteStaff(){
-   
-    removeElements('.nowrap');
-    //removeElements('.noprint');
+    removeElements('.nowrap', '.reference', '.mw-editsection', 
+    '.plainlinks', '.catlinks', '.navbox', '.vertical-navbox', '.IPA');
     removeNoprint();
-    removeElements('.reference');
-    removeElements('.mw-editsection');
-    removeElements('.plainlinks');
-    removeElements('.catlinks');
-    removeElements('.navbox');
-    removeElements('.vertical-navbox');
-    removeElements('.IPA');
     changeHStyle();
 }
 
@@ -53,10 +40,12 @@ function changeHStyle(){
     }
 }
 
-function removeElements(name){
-    let elements = document.querySelectorAll(name);
-    for (let e of elements)
-        e.parentNode.removeChild(e);
+function removeElements(...names){
+    for(let name of names){
+        let elements = document.querySelectorAll(name);
+        for (let e of elements)
+            e.parentNode.removeChild(e);
+    }
 }
 
 function removeNoprint(){
@@ -68,9 +57,9 @@ function removeNoprint(){
 
 // delete all element and leave only text
 function clearAll(){
-    var text = document.querySelectorAll('.mw-parser-output');
+    let text = document.querySelectorAll('.mw-parser-output');
     document.body.innerHTML = text[0].innerHTML;
-    var styles = {
+    let styles = {
         background: "white",
         padding: "20px 50px"
     };
